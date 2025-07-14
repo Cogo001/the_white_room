@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://bwhoio0enhftv"
+path="res://.godot/imported/heart-monitor-beep-96554 (mp3cut.net).mp3-25108f8c20ed7bbd00fedd710487c998.mp3str"
+
+[deps]
+
+source_file="res://prima_stanza/heart-monitor-beep-96554 (mp3cut.net).mp3"
+dest_files=["res://.godot/imported/heart-monitor-beep-96554 (mp3cut.net).mp3-25108f8c20ed7bbd00fedd710487c998.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
