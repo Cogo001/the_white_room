@@ -1,0 +1,247 @@
+[gd_scene load_steps=22 format=3 uid="uid://c8yx2g6fxvmys"]
+
+[ext_resource type="PackedScene" uid="uid://cruki7qt60eci" path="res://Main_character/character_body_3d.tscn" id="1_3l6rg"]
+[ext_resource type="Material" uid="uid://kvg2gxip8crm" path="res://ospedale_sprite/wall_hospital.tres" id="1_8tpli"]
+[ext_resource type="Script" uid="uid://ttccgbjldcnp" path="res://prima_stanza/prima_stanza_3d.gd" id="1_k5fev"]
+[ext_resource type="Material" uid="uid://f401y8v48emh" path="res://ospedale_sprite/tiles_hospital.tres" id="2_8tpli"]
+[ext_resource type="Script" uid="uid://dq56vayquxkjp" path="res://prima_stanza/camera_3d.gd" id="2_e8sfr"]
+[ext_resource type="Material" uid="uid://dbtyd030ignh3" path="res://prima_stanza/invisible_wall.tres" id="3_e6vqb"]
+[ext_resource type="PackedScene" uid="uid://dmooyty3ykhi7" path="res://script_gioco/invisible_wall_area.tscn" id="4_e6vqb"]
+[ext_resource type="AudioStream" uid="uid://bwhoio0enhftv" path="res://prima_stanza/heart-monitor-beep-96554 (mp3cut.net).mp3" id="6_l8ktf"]
+[ext_resource type="PackedScene" uid="uid://bp28vbwf1pq8k" path="res://prove/scene.gltf" id="8_5himu"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_3l6rg"]
+
+[sub_resource type="Sky" id="Sky_e8sfr"]
+sky_material = SubResource("ProceduralSkyMaterial_3l6rg")
+
+[sub_resource type="Environment" id="Environment_8cjw7"]
+background_mode = 2
+background_color = Color(1, 1, 1, 1)
+sky = SubResource("Sky_e8sfr")
+sky_rotation = Vector3(-1.5708, 0, 0)
+ambient_light_source = 2
+tonemap_mode = 2
+glow_enabled = true
+glow_bloom = 1.0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_8tpli"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_kygqb"]
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_k5fev"]
+
+[sub_resource type="Animation" id="Animation_e6vqb"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_l8ktf"]
+resource_name = "new_animation"
+length = 10.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 10),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(6.28319, 6.28319, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_5himu"]
+_data = {
+&"RESET": SubResource("Animation_e6vqb"),
+&"new_animation": SubResource("Animation_l8ktf")
+}
+
+[sub_resource type="Animation" id="Animation_662qm"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0, 0, 0, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_wtxkd"]
+resource_name = "fade_in"
+length = 3.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 1), Color(0, 0, 0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_w0utg"]
+_data = {
+&"RESET": SubResource("Animation_662qm"),
+&"fade_in": SubResource("Animation_wtxkd")
+}
+
+[node name="Prima_stanza" type="Node3D"]
+script = ExtResource("1_k5fev")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.920332, -0.363896, 0.143419, 0.305995, 0.441452, -0.843498, 0.243633, 0.820183, 0.517632, -1.42442, 6.01786, -0.418238)
+shadow_enabled = true
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_8cjw7")
+
+[node name="CSGCombiner3D" type="CSGCombiner3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1.9084, 0, 0, 0, 1, 0, -0.426116, 0)
+use_collision = true
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="CSGCombiner3D"]
+transform = Transform3D(0.999925, 0, 0.0121123, 0, 0.999999, 0, -0.0121123, 0, 0.999925, -0.0209961, 1.42207, -2.4995)
+size = Vector3(5.04199, 2, 0.001)
+material = ExtResource("1_8tpli")
+
+[node name="CSGBox3D" type="CSGBox3D" parent="CSGCombiner3D/CSGBox3D2"]
+transform = Transform3D(0.799997, 0, 0, 0, 0.8, 0, 0, 0, 0.799997, 0.104698, -0.277199, 0.0154989)
+operation = 2
+size = Vector3(1, 0.646851, 0.599609)
+material = SubResource("StandardMaterial3D_8tpli")
+
+[node name="muro_con_porta" type="CSGBox3D" parent="CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00414943, 1.45466, 2.48218)
+size = Vector3(4.9917, 2, 0.001)
+material = ExtResource("3_e6vqb")
+
+[node name="CSGBox3D" type="CSGBox3D" parent="CSGCombiner3D/muro_con_porta"]
+transform = Transform3D(0.8, 0, 0, 0, 0.8, 0, 0, 0, 0.8, 1.24758, -0.665511, 0.0154989)
+operation = 2
+size = Vector3(0.838867, 0.753679, 0.599609)
+
+[node name="Invisible_wall_area" parent="CSGCombiner3D/muro_con_porta" instance=ExtResource("4_e6vqb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.00300527, 0)
+
+[node name="CSGBox3D3" type="CSGBox3D" parent="CSGCombiner3D"]
+transform = Transform3D(-4.37112e-08, 0, 0.999997, 0, 0.999999, 0, -0.999997, 0, -4.37112e-08, -2.95961, 1.44002, 0.00332265)
+size = Vector3(5.02856, 2, 0.929699)
+material = ExtResource("1_8tpli")
+
+[node name="CSGBox3D6" type="CSGBox3D" parent="CSGCombiner3D"]
+transform = Transform3D(4.8214e-10, 0.999932, -0.0110301, 4.37085e-08, -0.0110302, -0.999936, -0.99999, 0, -4.37108e-08, -0.0689576, 2.4991, -0.160983)
+size = Vector3(5.35718, 7.21973, 0.929699)
+material = ExtResource("1_8tpli")
+
+[node name="CSGBox3D4" type="CSGBox3D" parent="CSGCombiner3D"]
+transform = Transform3D(-4.37113e-08, 0, -0.999998, 0, 0.999999, 0, 0.999998, 0, -4.37113e-08, 2.84483, 1.43295, -0.0978735)
+size = Vector3(5.17383, 2, 0.6919)
+material = ExtResource("1_8tpli")
+
+[node name="floor" type="CSGBox3D" parent="CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 0.524, 0, 0, 0, 1, 0, 0.472523, 0)
+use_collision = true
+size = Vector3(5, 0.0487061, 5)
+material = ExtResource("2_8tpli")
+
+[node name="CharacterBody3D" parent="." instance=ExtResource("1_3l6rg")]
+transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, -0.738417, 0.760628, -1.61644)
+
+[node name="Camera_principale" type="Camera3D" parent="CharacterBody3D"]
+transform = Transform3D(1, 0, 0, 0, 0.731354, 0.681998, 0, -0.681998, 0.731354, 0, 11.765, 15)
+fov = 50.0
+far = 100.2
+script = ExtResource("2_e8sfr")
+
+[node name="CSGCombiner3D2" type="CSGCombiner3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.41596, 0, 0)
+
+[node name="CSGBox3D" type="CSGBox3D" parent="CSGCombiner3D2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0093689, 0, -2.5)
+size = Vector3(1.93842, 1, 12)
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="CSGCombiner3D2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0272055, 1.97326, -7.99565)
+size = Vector3(3, 5, 1)
+
+[node name="Sketchfab_Scene" parent="." instance=ExtResource("8_5himu")]
+transform = Transform3D(0.04, 0, 0, 0, 0.04, 0, 0, 0, 0.04, -19.298, 0.42, 1.646)
+
+[node name="SpotLight3D" type="SpotLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.0744914, 0.997222, 0, -0.997222, 0.0744914, 0, 3.21371, 0)
+light_specular = 0.015
+spot_range = 47.209
+spot_attenuation = 2.35
+spot_angle = 82.7
+spot_angle_attenuation = 2.37841
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.305253, 0.636802, -12.7497)
+material_overlay = SubResource("StandardMaterial3D_kygqb")
+mesh = SubResource("CylinderMesh_k5fev")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="MeshInstance3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.988162, 0, 1.87597)
+omni_range = 3.942
+omni_shadow_mode = 0
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="MeshInstance3D"]
+libraries = {
+&"": SubResource("AnimationLibrary_5himu")
+}
+autoplay = "new_animation"
+
+[node name="Fade_in" type="ColorRect" parent="."]
+visible = false
+offset_right = 1152.0
+offset_bottom = 652.0
+color = Color(0, 0, 0, 1)
+
+[node name="fade_in" type="AnimationPlayer" parent="Fade_in"]
+libraries = {
+&"": SubResource("AnimationLibrary_w0utg")
+}
+
+[node name="Bip_bip_hospital" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_l8ktf")
+volume_db = -30.0
+pitch_scale = 0.6
+autoplay = true
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.929663, 1.26837, 4.11618)
+
+[node name="purple" type="SpotLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -0.200343, 0.979726, 0, -0.979726, -0.200343, 1.19397, 2.41616, 3.45368)
+light_color = Color(1, 0, 0, 1)
+light_cull_mask = 4294966273
+shadow_enabled = true
+shadow_normal_bias = 10.0
+shadow_opacity = 0.0
+shadow_blur = 10.0
+spot_range = 2.683
+spot_attenuation = -0.41
+spot_angle = 46.82
+
+[connection signal="finished" from="Bip_bip_hospital" to="." method="_on_bip_bip_hospital_finished"]

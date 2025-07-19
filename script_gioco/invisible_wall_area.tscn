@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://dmooyty3ykhi7"]
+
+[ext_resource type="Script" uid="uid://nv5l4qwy0f10" path="res://prima_stanza/invisible.gd" id="1_8imdv"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_l8ktf"]
+size = Vector3(4.91842, 0.405762, 4.14923)
+
+[node name="Invisible_wall_area" type="Area3D"]
+collision_layer = 4
+collision_mask = 2
+script = ExtResource("1_8imdv")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.000163562, -0.734722, -2.15618)
+shape = SubResource("BoxShape3D_l8ktf")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]

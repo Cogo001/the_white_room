@@ -1,0 +1,25 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://kqv4133hmki5"
+path="res://.godot/imported/OldWallClock_Blender.obj-5af911fb902aed50aa7a7c9846abdece.mesh"
+
+[deps]
+
+files=["res://.godot/imported/OldWallClock_Blender.obj-5af911fb902aed50aa7a7c9846abdece.mesh"]
+
+source_file="res://prima_stanza/OldWallClock_Blender.obj"
+dest_files=["res://.godot/imported/OldWallClock_Blender.obj-5af911fb902aed50aa7a7c9846abdece.mesh", "res://.godot/imported/OldWallClock_Blender.obj-5af911fb902aed50aa7a7c9846abdece.mesh"]
+
+[params]
+
+generate_tangents=true
+generate_lods=true
+generate_shadow_mesh=true
+generate_lightmap_uv2=false
+generate_lightmap_uv2_texel_size=0.2
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+force_disable_mesh_compression=false

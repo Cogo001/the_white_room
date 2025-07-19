@@ -34,4 +34,4 @@ func _on_animation_player_animation_finished(anim_name):
 
 
 func _on_fade_out_animation_animation_finished(anim_name):
-	get_tree().change_scene_to_file("res://prima_stanza/prima_stanza.tscn")
+	get_tree().change_scene_to_file("res://prima_stanza/prima_stanza3d.tscn")
