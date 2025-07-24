@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://c8yx2g6fxvmys"]
+[gd_scene load_steps=24 format=3 uid="uid://c8yx2g6fxvmys"]
 
 [ext_resource type="PackedScene" uid="uid://cruki7qt60eci" path="res://Main_character/character_body_3d.tscn" id="1_3l6rg"]
 [ext_resource type="Material" uid="uid://kvg2gxip8crm" path="res://ospedale_sprite/wall_hospital.tres" id="1_8tpli"]
@@ -6,9 +6,10 @@
 [ext_resource type="Material" uid="uid://f401y8v48emh" path="res://ospedale_sprite/tiles_hospital.tres" id="2_8tpli"]
 [ext_resource type="Script" uid="uid://dq56vayquxkjp" path="res://prima_stanza/camera_3d.gd" id="2_e8sfr"]
 [ext_resource type="Material" uid="uid://dbtyd030ignh3" path="res://prima_stanza/invisible_wall.tres" id="3_e6vqb"]
-[ext_resource type="PackedScene" uid="uid://dmooyty3ykhi7" path="res://script_gioco/invisible_wall_area.tscn" id="4_e6vqb"]
+[ext_resource type="Script" uid="uid://nv5l4qwy0f10" path="res://prima_stanza/invisible.gd" id="4_nuqtc"]
 [ext_resource type="AudioStream" uid="uid://bwhoio0enhftv" path="res://prima_stanza/heart-monitor-beep-96554 (mp3cut.net).mp3" id="6_l8ktf"]
 [ext_resource type="PackedScene" uid="uid://bp28vbwf1pq8k" path="res://prove/scene.gltf" id="8_5himu"]
+[ext_resource type="MeshLibrary" uid="uid://bowha2yibwgbi" path="res://global/floor.tres" id="10_nuqtc"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_3l6rg"]
 
@@ -26,6 +27,9 @@ glow_enabled = true
 glow_bloom = 1.0
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_8tpli"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_l8ktf"]
+size = Vector3(4.91842, 0.405762, 4.83907)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_kygqb"]
 
@@ -110,7 +114,7 @@ _data = {
 script = ExtResource("1_k5fev")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
-transform = Transform3D(0.920332, -0.363896, 0.143419, 0.305995, 0.441452, -0.843498, 0.243633, 0.820183, 0.517632, -1.42442, 6.01786, -0.418238)
+transform = Transform3D(0.920331, -0.363897, 0.143421, 0.239192, 0.233477, -0.942485, 0.309482, 0.901702, 0.301916, -1.42442, 6.01786, -0.418238)
 shadow_enabled = true
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
@@ -132,8 +136,8 @@ size = Vector3(1, 0.646851, 0.599609)
 material = SubResource("StandardMaterial3D_8tpli")
 
 [node name="muro_con_porta" type="CSGBox3D" parent="CSGCombiner3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00414943, 1.45466, 2.48218)
-size = Vector3(4.9917, 2, 0.001)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00414943, 1.42445, 2.5127)
+size = Vector3(4.9917, 1.93958, 0.001)
 material = ExtResource("3_e6vqb")
 
 [node name="CSGBox3D" type="CSGBox3D" parent="CSGCombiner3D/muro_con_porta"]
@@ -141,8 +145,15 @@ transform = Transform3D(0.8, 0, 0, 0, 0.8, 0, 0, 0, 0.8, 1.24758, -0.665511, 0.0
 operation = 2
 size = Vector3(0.838867, 0.753679, 0.599609)
 
-[node name="Invisible_wall_area" parent="CSGCombiner3D/muro_con_porta" instance=ExtResource("4_e6vqb")]
+[node name="Invisible_wall_area" type="Area3D" parent="CSGCombiner3D/muro_con_porta"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.00300527, 0)
+collision_layer = 4
+collision_mask = 2
+script = ExtResource("4_nuqtc")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="CSGCombiner3D/muro_con_porta/Invisible_wall_area"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.000163562, -0.734722, -2.5011)
+shape = SubResource("BoxShape3D_l8ktf")
 
 [node name="CSGBox3D3" type="CSGBox3D" parent="CSGCombiner3D"]
 transform = Transform3D(-4.37112e-08, 0, 0.999997, 0, 0.999999, 0, -0.999997, 0, -4.37112e-08, -2.95961, 1.44002, 0.00332265)
@@ -161,6 +172,7 @@ material = ExtResource("1_8tpli")
 
 [node name="floor" type="CSGBox3D" parent="CSGCombiner3D"]
 transform = Transform3D(1, 0, 0, 0, 0.524, 0, 0, 0, 1, 0, 0.472523, 0)
+visible = false
 use_collision = true
 size = Vector3(5, 0.0487061, 5)
 material = ExtResource("2_8tpli")
@@ -244,4 +256,13 @@ spot_range = 2.683
 spot_attenuation = -0.41
 spot_angle = 46.82
 
+[node name="GridMap" type="GridMap" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.576718, 0)
+mesh_library = ExtResource("10_nuqtc")
+data = {
+"cells": PackedInt32Array(65533, 65534, 0, 65533, 65535, 0, 65533, 0, 0, 65533, 1, 0, 65534, 65534, 0, 65534, 65535, 0, 65534, 0, 0, 65534, 1, 0, 65535, 65534, 0, 65535, 65535, 0, 65535, 0, 0, 65535, 1, 0, 0, 65534, 0, 0, 65535, 0, 0, 0, 0, 0, 1, 0, 1, 65534, 0, 1, 65535, 0, 1, 0, 0, 1, 1, 0)
+}
+
+[connection signal="body_entered" from="CSGCombiner3D/muro_con_porta/Invisible_wall_area" to="CSGCombiner3D/muro_con_porta/Invisible_wall_area" method="_on_body_entered"]
+[connection signal="body_exited" from="CSGCombiner3D/muro_con_porta/Invisible_wall_area" to="CSGCombiner3D/muro_con_porta/Invisible_wall_area" method="_on_body_exited"]
 [connection signal="finished" from="Bip_bip_hospital" to="." method="_on_bip_bip_hospital_finished"]

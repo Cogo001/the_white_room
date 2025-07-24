@@ -1,0 +1,7 @@
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://b2erdqbq0yd46"]
+
+[ext_resource type="Texture2D" uid="uid://csfnb4ok2jpb8" path="res://ospedale_sprite/tiles_hospital.png" id="1_n5y8c"]
+
+[resource]
+albedo_texture = ExtResource("1_n5y8c")
+uv1_scale = Vector3(1.02, 2.2, 1.01)
