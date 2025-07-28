@@ -174,6 +174,8 @@ animations = [{
 }]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_wkoou"]
+radius = 1.60014
+height = 3.20028
 
 [sub_resource type="SeparationRayShape3D" id="SeparationRayShape3D_jq76v"]
 margin = 0.0
@@ -187,8 +189,9 @@ script = ExtResource("1_87bhb")
 
 [node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="."]
 pixel_size = 0.0386
-billboard = 2
+billboard = 1
 texture_filter = 0
+render_priority = 10
 sprite_frames = SubResource("SpriteFrames_jq76v")
 animation = &"down"
 autoplay = "down"

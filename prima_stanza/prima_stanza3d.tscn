@@ -1,14 +1,11 @@
-[gd_scene load_steps=24 format=3 uid="uid://c8yx2g6fxvmys"]
+[gd_scene load_steps=21 format=3 uid="uid://c8yx2g6fxvmys"]
 
 [ext_resource type="PackedScene" uid="uid://cruki7qt60eci" path="res://Main_character/character_body_3d.tscn" id="1_3l6rg"]
 [ext_resource type="Material" uid="uid://kvg2gxip8crm" path="res://ospedale_sprite/wall_hospital.tres" id="1_8tpli"]
 [ext_resource type="Script" uid="uid://ttccgbjldcnp" path="res://prima_stanza/prima_stanza_3d.gd" id="1_k5fev"]
-[ext_resource type="Material" uid="uid://f401y8v48emh" path="res://ospedale_sprite/tiles_hospital.tres" id="2_8tpli"]
 [ext_resource type="Script" uid="uid://dq56vayquxkjp" path="res://prima_stanza/camera_3d.gd" id="2_e8sfr"]
 [ext_resource type="Material" uid="uid://dbtyd030ignh3" path="res://prima_stanza/invisible_wall.tres" id="3_e6vqb"]
-[ext_resource type="Script" uid="uid://nv5l4qwy0f10" path="res://prima_stanza/invisible.gd" id="4_nuqtc"]
 [ext_resource type="AudioStream" uid="uid://bwhoio0enhftv" path="res://prima_stanza/heart-monitor-beep-96554 (mp3cut.net).mp3" id="6_l8ktf"]
-[ext_resource type="PackedScene" uid="uid://bp28vbwf1pq8k" path="res://prove/scene.gltf" id="8_5himu"]
 [ext_resource type="MeshLibrary" uid="uid://bowha2yibwgbi" path="res://global/floor.tres" id="10_nuqtc"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_3l6rg"]
@@ -17,7 +14,7 @@
 sky_material = SubResource("ProceduralSkyMaterial_3l6rg")
 
 [sub_resource type="Environment" id="Environment_8cjw7"]
-background_mode = 2
+background_mode = 1
 background_color = Color(1, 1, 1, 1)
 sky = SubResource("Sky_e8sfr")
 sky_rotation = Vector3(-1.5708, 0, 0)
@@ -27,9 +24,6 @@ glow_enabled = true
 glow_bloom = 1.0
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_8tpli"]
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_l8ktf"]
-size = Vector3(4.91842, 0.405762, 4.83907)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_kygqb"]
 
@@ -110,11 +104,15 @@ _data = {
 &"fade_in": SubResource("Animation_wtxkd")
 }
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_l8ktf"]
+size = Vector3(0.001, 0.545532, 8.05744)
+
 [node name="Prima_stanza" type="Node3D"]
 script = ExtResource("1_k5fev")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
-transform = Transform3D(0.920331, -0.363897, 0.143421, 0.239192, 0.233477, -0.942485, 0.309482, 0.901702, 0.301916, -1.42442, 6.01786, -0.418238)
+transform = Transform3D(-0.306435, -0.82617, 0.472801, -0.877302, 0.437862, 0.196516, -0.369377, -0.35457, -0.858977, -8.8077, 9.76662, -5.91414)
+light_color = Color(0.973535, 0.973535, 0.973535, 1)
 shadow_enabled = true
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
@@ -125,8 +123,8 @@ transform = Transform3D(1, 0, 0, 0, 1.9084, 0, 0, 0, 1, 0, -0.426116, 0)
 use_collision = true
 
 [node name="CSGBox3D2" type="CSGBox3D" parent="CSGCombiner3D"]
-transform = Transform3D(0.999925, 0, 0.0121123, 0, 0.999999, 0, -0.0121123, 0, 0.999925, -0.0209961, 1.42207, -2.4995)
-size = Vector3(5.04199, 2, 0.001)
+transform = Transform3D(0.999925, 0, 0.0121123, 0, 0.999999, 0, -0.0121123, 0, 0.999925, -0.0655248, 1.42207, -3.98837)
+size = Vector3(9.25058, 2, 0.001)
 material = ExtResource("1_8tpli")
 
 [node name="CSGBox3D" type="CSGBox3D" parent="CSGCombiner3D/CSGBox3D2"]
@@ -136,53 +134,33 @@ size = Vector3(1, 0.646851, 0.599609)
 material = SubResource("StandardMaterial3D_8tpli")
 
 [node name="muro_con_porta" type="CSGBox3D" parent="CSGCombiner3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00414943, 1.42445, 2.5127)
-size = Vector3(4.9917, 1.93958, 0.001)
+transform = Transform3D(-1, 1.58743e-08, -9.0431e-08, -8.01929e-08, 0.328603, 0.944468, 4.47086e-08, 0.944468, -0.328603, 0.0126944, 0.651814, 4.68306)
+size = Vector3(8.02002, 1.93958, 0.001)
 material = ExtResource("3_e6vqb")
 
 [node name="CSGBox3D" type="CSGBox3D" parent="CSGCombiner3D/muro_con_porta"]
-transform = Transform3D(0.8, 0, 0, 0, 0.8, 0, 0, 0, 0.8, 1.24758, -0.665511, 0.0154989)
+transform = Transform3D(0.8, 0, 0, -2.22045e-16, 0.8, 3.72529e-09, -7.10543e-15, 0, 0.8, -2.15676, -0.665511, 0.0154984)
 operation = 2
 size = Vector3(0.838867, 0.753679, 0.599609)
 
-[node name="Invisible_wall_area" type="Area3D" parent="CSGCombiner3D/muro_con_porta"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.00300527, 0)
-collision_layer = 4
-collision_mask = 2
-script = ExtResource("4_nuqtc")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="CSGCombiner3D/muro_con_porta/Invisible_wall_area"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.000163562, -0.734722, -2.5011)
-shape = SubResource("BoxShape3D_l8ktf")
-
 [node name="CSGBox3D3" type="CSGBox3D" parent="CSGCombiner3D"]
-transform = Transform3D(-4.37112e-08, 0, 0.999997, 0, 0.999999, 0, -0.999997, 0, -4.37112e-08, -2.95961, 1.44002, 0.00332265)
-size = Vector3(5.02856, 2, 0.929699)
-material = ExtResource("1_8tpli")
-
-[node name="CSGBox3D6" type="CSGBox3D" parent="CSGCombiner3D"]
-transform = Transform3D(4.8214e-10, 0.999932, -0.0110301, 4.37085e-08, -0.0110302, -0.999936, -0.99999, 0, -4.37108e-08, -0.0689576, 2.4991, -0.160983)
-size = Vector3(5.35718, 7.21973, 0.929699)
+transform = Transform3D(-4.15132e-08, -0.313114, 0.949713, -1.36866e-08, 0.949715, 0.313113, -0.999997, 8.72916e-16, -4.37112e-08, -4.27948, 1.38385, 0.0767788)
+size = Vector3(7.91656, 2, 0.001)
 material = ExtResource("1_8tpli")
 
 [node name="CSGBox3D4" type="CSGBox3D" parent="CSGCombiner3D"]
-transform = Transform3D(-4.37113e-08, 0, -0.999998, 0, 0.999999, 0, 0.999998, 0, -4.37113e-08, 2.84483, 1.43295, -0.0978735)
-size = Vector3(5.17383, 2, 0.6919)
+transform = Transform3D(-4.36932e-08, 0.212126, -0.97724, 1.25633e-09, 0.977242, 0.212126, 0.999998, 8.04076e-09, -4.29654e-08, 4.20762, 1.39809, -0.25101)
+size = Vector3(8.31384, 2, 0.147431)
 material = ExtResource("1_8tpli")
 
-[node name="floor" type="CSGBox3D" parent="CSGCombiner3D"]
-transform = Transform3D(1, 0, 0, 0, 0.524, 0, 0, 0, 1, 0, 0.472523, 0)
-visible = false
-use_collision = true
-size = Vector3(5, 0.0487061, 5)
-material = ExtResource("2_8tpli")
-
 [node name="CharacterBody3D" parent="." instance=ExtResource("1_3l6rg")]
-transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, -0.738417, 0.760628, -1.61644)
+transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, -0.738417, 0.796041, -2.10316)
 
 [node name="Camera_principale" type="Camera3D" parent="CharacterBody3D"]
-transform = Transform3D(1, 0, 0, 0, 0.731354, 0.681998, 0, -0.681998, 0.731354, 0, 11.765, 15)
+transform = Transform3D(5, 0, 0, 0, 3.30197, 3.75459, 0, -3.75459, 3.30197, -0.934984, 31.1143, 25.2255)
+projection = 1
 fov = 50.0
+size = 6.288
 far = 100.2
 script = ExtResource("2_e8sfr")
 
@@ -197,19 +175,16 @@ size = Vector3(1.93842, 1, 12)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0272055, 1.97326, -7.99565)
 size = Vector3(3, 5, 1)
 
-[node name="Sketchfab_Scene" parent="." instance=ExtResource("8_5himu")]
-transform = Transform3D(0.04, 0, 0, 0, 0.04, 0, 0, 0, 0.04, -19.298, 0.42, 1.646)
-
 [node name="SpotLight3D" type="SpotLight3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 0.0744914, 0.997222, 0, -0.997222, 0.0744914, 0, 3.21371, 0)
+transform = Transform3D(0.998451, -0.00414394, -0.0554753, 0.0556298, 0.074376, 0.995677, 0, -0.997222, 0.0744914, 0, 5.62931, 0)
 light_specular = 0.015
-spot_range = 47.209
-spot_attenuation = 2.35
-spot_angle = 82.7
-spot_angle_attenuation = 2.37841
+spot_range = 28.81
+spot_attenuation = 0.39
+spot_angle = 77.6
+spot_angle_attenuation = 0.129408
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.305253, 0.636802, -12.7497)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.32319, -1.38555, -5.04339)
 material_overlay = SubResource("StandardMaterial3D_kygqb")
 mesh = SubResource("CylinderMesh_k5fev")
 
@@ -260,9 +235,17 @@ spot_angle = 46.82
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.576718, 0)
 mesh_library = ExtResource("10_nuqtc")
 data = {
-"cells": PackedInt32Array(65533, 65534, 0, 65533, 65535, 0, 65533, 0, 0, 65533, 1, 0, 65534, 65534, 0, 65534, 65535, 0, 65534, 0, 0, 65534, 1, 0, 65535, 65534, 0, 65535, 65535, 0, 65535, 0, 0, 65535, 1, 0, 0, 65534, 0, 0, 65535, 0, 0, 0, 0, 0, 1, 0, 1, 65534, 0, 1, 65535, 0, 1, 0, 0, 1, 1, 0)
+"cells": PackedInt32Array(65535, 65534, 0, 65535, 0, 0, 0, 65534, 0, 0, 65535, 0, 0, 0, 0, 65535, 65535, 0, 65534, 65534, 0, 65534, 65535, 0, 65534, 0, 0, 65534, 1, 0, 65535, 1, 0, 0, 1, 0, 1, 1, 0, 1, 0, 0, 1, 65535, 0, 1, 65534, 0)
 }
 
-[connection signal="body_entered" from="CSGCombiner3D/muro_con_porta/Invisible_wall_area" to="CSGCombiner3D/muro_con_porta/Invisible_wall_area" method="_on_body_entered"]
-[connection signal="body_exited" from="CSGCombiner3D/muro_con_porta/Invisible_wall_area" to="CSGCombiner3D/muro_con_porta/Invisible_wall_area" method="_on_body_exited"]
+[node name="Limits" type="Node3D" parent="."]
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Limits"]
+collision_mask = 2
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Limits/StaticBody3D"]
+transform = Transform3D(0.000750512, 0, 1, 0, 1, 0, -1, 0, 0.000750512, 0.0266777, 0.793074, 4.05267)
+shape = SubResource("BoxShape3D_l8ktf")
+debug_color = Color(0.996078, 0, 0.193601, 0.42)
+
 [connection signal="finished" from="Bip_bip_hospital" to="." method="_on_bip_bip_hospital_finished"]

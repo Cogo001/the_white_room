@@ -2,21 +2,21 @@
 
 [ext_resource type="Material" uid="uid://b2erdqbq0yd46" path="res://global/mesh_floor_texture.tres" id="1_hixkc"]
 
-[sub_resource type="PlaneMesh" id="PlaneMesh_0436h"]
-
 [sub_resource type="BoxShape3D" id="BoxShape3D_yw0kl"]
 size = Vector3(1.98413, 0.0334473, 2.01367)
 
+[sub_resource type="PlaneMesh" id="PlaneMesh_0436h"]
+size = Vector2(2.095, 2)
+
 [node name="all_meshes" type="Node3D"]
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 0, 0)
-mesh = SubResource("PlaneMesh_0436h")
-skeleton = NodePath("StaticBody3D")
-surface_material_override/0 = ExtResource("1_hixkc")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="MeshInstance3D"]
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="MeshInstance3D/StaticBody3D"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00280762, -0.0109697, -0.00488281)
 shape = SubResource("BoxShape3D_yw0kl")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D"]
+mesh = SubResource("PlaneMesh_0436h")
+surface_material_override/0 = ExtResource("1_hixkc")
