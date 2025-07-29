@@ -1,4 +1,4 @@
-[gd_scene load_steps=4 format=3 uid="uid://dudiyps4mwlj"]
+[gd_scene load_steps=7 format=3 uid="uid://dudiyps4mwlj"]
 
 [ext_resource type="Material" uid="uid://b2erdqbq0yd46" path="res://global/mesh_floor_texture.tres" id="1_hixkc"]
 
@@ -6,17 +6,44 @@
 size = Vector3(1.98413, 0.0334473, 2.01367)
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_0436h"]
-size = Vector2(2.095, 2)
+material = ExtResource("1_hixkc")
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_hixkc"]
+size = Vector3(1, 0.001, 0.947021)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_yw0kl"]
+albedo_color = Color(0, 0, 0, 1)
+
+[sub_resource type="QuadMesh" id="QuadMesh_0436h"]
+material = SubResource("StandardMaterial3D_yw0kl")
+size = Vector2(2, 2)
 
 [node name="all_meshes" type="Node3D"]
 
-[node name="StaticBody3D" type="StaticBody3D" parent="."]
+[node name="1" type="Node3D" parent="."]
+
+[node name="StaticBody3D" type="StaticBody3D" parent="1"]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 0, 0)
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="1/StaticBody3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00280762, -0.0109697, -0.00488281)
 shape = SubResource("BoxShape3D_yw0kl")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D"]
+[node name="1" type="MeshInstance3D" parent="1/StaticBody3D"]
 mesh = SubResource("PlaneMesh_0436h")
 surface_material_override/0 = ExtResource("1_hixkc")
+
+[node name="2" type="Node3D" parent="."]
+
+[node name="StaticBody3D2" type="StaticBody3D" parent="2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1.63874)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="2/StaticBody3D2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00280762, -0.018254, -0.0308018)
+shape = SubResource("BoxShape3D_hixkc")
+
+[node name="2" type="MeshInstance3D" parent="2/StaticBody3D2"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0)
+gi_mode = 0
+gi_lightmap_texel_scale = 0.01
+mesh = SubResource("QuadMesh_0436h")

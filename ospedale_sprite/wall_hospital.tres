@@ -3,4 +3,5 @@
 [ext_resource type="Texture2D" uid="uid://ceigag6kghmqa" path="res://ospedale_sprite/pixel art/pixil-frame-0.png" id="1_ri2g6"]
 
 [resource]
+shading_mode = 2
 albedo_texture = ExtResource("1_ri2g6")

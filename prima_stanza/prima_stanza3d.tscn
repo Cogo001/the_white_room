@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://c8yx2g6fxvmys"]
+[gd_scene load_steps=23 format=3 uid="uid://c8yx2g6fxvmys"]
 
 [ext_resource type="PackedScene" uid="uid://cruki7qt60eci" path="res://Main_character/character_body_3d.tscn" id="1_3l6rg"]
 [ext_resource type="Material" uid="uid://kvg2gxip8crm" path="res://ospedale_sprite/wall_hospital.tres" id="1_8tpli"]
@@ -6,7 +6,8 @@
 [ext_resource type="Script" uid="uid://dq56vayquxkjp" path="res://prima_stanza/camera_3d.gd" id="2_e8sfr"]
 [ext_resource type="Material" uid="uid://dbtyd030ignh3" path="res://prima_stanza/invisible_wall.tres" id="3_e6vqb"]
 [ext_resource type="AudioStream" uid="uid://bwhoio0enhftv" path="res://prima_stanza/heart-monitor-beep-96554 (mp3cut.net).mp3" id="6_l8ktf"]
-[ext_resource type="MeshLibrary" uid="uid://bowha2yibwgbi" path="res://global/floor.tres" id="10_nuqtc"]
+[ext_resource type="Texture2D" uid="uid://ceigag6kghmqa" path="res://ospedale_sprite/pixel art/pixil-frame-0.png" id="8_e6vqb"]
+[ext_resource type="MeshLibrary" uid="uid://cbdkc54wk27xw" path="res://global/floor.tres" id="10_nuqtc"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_3l6rg"]
 
@@ -14,7 +15,7 @@
 sky_material = SubResource("ProceduralSkyMaterial_3l6rg")
 
 [sub_resource type="Environment" id="Environment_8cjw7"]
-background_mode = 1
+background_mode = 2
 background_color = Color(1, 1, 1, 1)
 sky = SubResource("Sky_e8sfr")
 sky_rotation = Vector3(-1.5708, 0, 0)
@@ -107,11 +108,17 @@ _data = {
 [sub_resource type="BoxShape3D" id="BoxShape3D_l8ktf"]
 size = Vector3(0.001, 0.545532, 8.05744)
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_5himu"]
+shading_mode = 2
+albedo_texture = ExtResource("8_e6vqb")
+uv1_scale = Vector3(1, 10.845, 1)
+uv1_offset = Vector3(0, 21.04, 0)
+
 [node name="Prima_stanza" type="Node3D"]
 script = ExtResource("1_k5fev")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
-transform = Transform3D(-0.306435, -0.82617, 0.472801, -0.877302, 0.437862, 0.196516, -0.369377, -0.35457, -0.858977, -8.8077, 9.76662, -5.91414)
+transform = Transform3D(-0.473913, -0.855019, -0.210591, -0.877302, 0.437862, 0.196516, -0.0758145, 0.277883, -0.957618, -8.8077, 9.76662, -5.91414)
 light_color = Color(0.973535, 0.973535, 0.973535, 1)
 shadow_enabled = true
 
@@ -122,16 +129,26 @@ environment = SubResource("Environment_8cjw7")
 transform = Transform3D(1, 0, 0, 0, 1.9084, 0, 0, 0, 1, 0, -0.426116, 0)
 use_collision = true
 
-[node name="CSGBox3D2" type="CSGBox3D" parent="CSGCombiner3D"]
-transform = Transform3D(0.999925, 0, 0.0121123, 0, 0.999999, 0, -0.0121123, 0, 0.999925, -0.0655248, 1.42207, -3.98837)
-size = Vector3(9.25058, 2, 0.001)
+[node name="muro_con_finestra" type="CSGBox3D" parent="CSGCombiner3D"]
+transform = Transform3D(0.999997, 0, 0.00164064, 0, 0.999999, 0, -0.00164064, 0, 0.999997, -0.165487, 1.21198, -3.98716)
+size = Vector3(10.4837, 2, 0.001)
 material = ExtResource("1_8tpli")
 
-[node name="CSGBox3D" type="CSGBox3D" parent="CSGCombiner3D/CSGBox3D2"]
+[node name="CSGBox3D" type="CSGBox3D" parent="CSGCombiner3D/muro_con_finestra"]
 transform = Transform3D(0.799997, 0, 0, 0, 0.8, 0, 0, 0, 0.799997, 0.104698, -0.277199, 0.0154989)
 operation = 2
 size = Vector3(1, 0.646851, 0.599609)
 material = SubResource("StandardMaterial3D_8tpli")
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="CSGCombiner3D/muro_con_finestra"]
+transform = Transform3D(0.999962, 0, 5.30854e-08, 0, 0.999954, 0, -5.30854e-08, 0, 0.999962, -5.35758, -0.436468, 0.0660155)
+operation = 2
+size = Vector3(1, 2.94975, 1)
+
+[node name="CSGBox3D3" type="CSGBox3D" parent="CSGCombiner3D/muro_con_finestra"]
+transform = Transform3D(0.999977, 0, 3.1665e-08, 0, 0.999972, 0, -3.1665e-08, 0, 0.999977, -5.06766, -0.267019, -0.0613379)
+operation = 2
+size = Vector3(0.992065, 1.37585, 1)
 
 [node name="muro_con_porta" type="CSGBox3D" parent="CSGCombiner3D"]
 transform = Transform3D(-1, 1.58743e-08, -9.0431e-08, -8.01929e-08, 0.328603, 0.944468, 4.47086e-08, 0.944468, -0.328603, 0.0126944, 0.651814, 4.68306)
@@ -144,28 +161,28 @@ operation = 2
 size = Vector3(0.838867, 0.753679, 0.599609)
 
 [node name="CSGBox3D3" type="CSGBox3D" parent="CSGCombiner3D"]
-transform = Transform3D(-4.15132e-08, -0.313114, 0.949713, -1.36866e-08, 0.949715, 0.313113, -0.999997, 8.72916e-16, -4.37112e-08, -4.27948, 1.38385, 0.0767788)
+transform = Transform3D(-4.37113e-08, -0.5, 0.866023, 0, 0.866025, 0.499999, -0.999997, 2.18557e-08, -3.78551e-08, -4.4665, 1.33398, 0.0767788)
 size = Vector3(7.91656, 2, 0.001)
 material = ExtResource("1_8tpli")
 
 [node name="CSGBox3D4" type="CSGBox3D" parent="CSGCombiner3D"]
-transform = Transform3D(-4.36932e-08, 0.212126, -0.97724, 1.25633e-09, 0.977242, 0.212126, 0.999998, 8.04076e-09, -4.29654e-08, 4.20762, 1.39809, -0.25101)
+transform = Transform3D(-0.0406549, 0.499587, -0.865307, 1.48158e-15, 0.866025, 0.499999, 0.999171, 0.0203275, -0.0352082, 4.53575, 1.32375, -0.25101)
 size = Vector3(8.31384, 2, 0.147431)
 material = ExtResource("1_8tpli")
 
-[node name="CharacterBody3D" parent="." instance=ExtResource("1_3l6rg")]
-transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, -0.738417, 0.796041, -2.10316)
-
-[node name="Camera_principale" type="Camera3D" parent="CharacterBody3D"]
-transform = Transform3D(5, 0, 0, 0, 3.30197, 3.75459, 0, -3.75459, 3.30197, -0.934984, 31.1143, 25.2255)
+[node name="Camera_principale" type="Camera3D" parent="CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -24.5572, 6.38778, -6.12922)
+top_level = true
 projection = 1
-fov = 50.0
-size = 6.288
-far = 100.2
+size = 13.914
+far = 33.17
 script = ExtResource("2_e8sfr")
 
+[node name="CharacterBody3D" parent="." instance=ExtResource("1_3l6rg")]
+transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, -25.0054, 1.29271, -6.37341)
+
 [node name="CSGCombiner3D2" type="CSGCombiner3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.41596, 0, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18.4002, 0, 0)
 
 [node name="CSGBox3D" type="CSGBox3D" parent="CSGCombiner3D2"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0093689, 0, -2.5)
@@ -235,8 +252,9 @@ spot_angle = 46.82
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.576718, 0)
 mesh_library = ExtResource("10_nuqtc")
 data = {
-"cells": PackedInt32Array(65535, 65534, 0, 65535, 0, 0, 0, 65534, 0, 0, 65535, 0, 0, 0, 0, 65535, 65535, 0, 65534, 65534, 0, 65534, 65535, 0, 65534, 0, 0, 65534, 1, 0, 65535, 1, 0, 0, 1, 0, 1, 1, 0, 1, 0, 0, 1, 65535, 0, 1, 65534, 0)
+"cells": PackedInt32Array(65535, 65534, 0, 65535, 0, 0, 0, 65534, 0, 0, 65535, 0, 0, 0, 0, 65535, 65535, 0, 65534, 65534, 0, 65534, 65535, 0, 65534, 0, 0, 65534, 1, 0, 65535, 1, 0, 0, 1, 0, 1, 1, 0, 1, 0, 0, 1, 65535, 0, 1, 65534, 0, -16, 65530, 1, -16, 65531, 1, -16, 65532, 1, -16, 65533, 1, -16, 65534, 1, -16, 65535, 1, -16, 0, 1, -15, 0, 1, -14, 0, 1, -13, 0, 1, -12, 0, 1, -11, 0, 1, -10, 0, 1, -9, 0, 1, -9, 65535, 1, -9, 65534, 1, -9, 65533, 1, -9, 65532, 1, -9, 65531, 1, -9, 65530, 1, -9, 65529, 1, -10, 65529, 1, -11, 65529, 1, -12, 65529, 1, -13, 65529, 1, -14, 65529, 1, -15, 65529, 1, -16, 65529, 1, -15, 65530, 1, -14, 65530, 1, -13, 65530, 1, -12, 65530, 1, -11, 65530, 1, -11, 65531, 1, -10, 65531, 1, -10, 65530, 1, -10, 65532, 1, -10, 65533, 1, -11, 65533, 1, -11, 65534, 1, -11, 65535, 1, -10, 65535, 1, -10, 65534, 1, -12, 65535, 1, -13, 65535, 1, -14, 65535, 1, -15, 65535, 1, -15, 65534, 1, -15, 65533, 1, -15, 65532, 1, -15, 65531, 1, -14, 65531, 1, -13, 65531, 1, -12, 65531, 1, -11, 65532, 1, -12, 65533, 1, -12, 65532, 1, -13, 65532, 1, -14, 65533, 1, -14, 65534, 1, -13, 65534, 1, -12, 65534, 1, -13, 65533, 1, -14, 65532, 1, 65521, 65530, 0, 65522, 65530, 0, 65523, 65530, 0, 65524, 65530, 0, 65525, 65530, 0, 65526, 65530, 0, 65526, 65531, 0, 65526, 65532, 0, 65526, 65533, 0, 65526, 65534, 0, 65525, 65534, 0, 65524, 65534, 0, 65523, 65534, 0, 65523, 65535, 0, 65524, 65535, 0, 65522, 65535, 0, 65522, 65534, 0, 65522, 65533, 0, 65521, 65533, 0, 65521, 65534, 0, 65521, 65532, 0, 65522, 65532, 0, 65522, 65531, 0, 65521, 65531, 0, 65523, 65531, 0, 65524, 65531, 0, 65525, 65531, 0, 65525, 65532, 0, 65525, 65533, 0, 65524, 65533, 0, 65523, 65533, 0, 65523, 65532, 0, 65524, 65532, 0, -22, 65526, 1, -22, 65527, 1, -22, 65528, 1, -22, 65529, 1, -22, 65530, 1, -22, 65531, 1, -22, 65532, 1, -22, 65533, 1, -22, 65534, 1, -22, 65535, 1, -22, 0, 1, -22, 1, 1, -22, 2, 1, -22, 3, 1, -22, 4, 1, -22, 5, 1, -22, 6, 1, -22, 7, 1, -22, 8, 1, -21, 65526, 1, -21, 65527, 1, -21, 65528, 1, -21, 65529, 1, -21, 65530, 1, -21, 65531, 1, -21, 65532, 1, -21, 65533, 1, -21, 65534, 1, -21, 65535, 1, -21, 0, 1, -21, 1, 1, -21, 2, 1, -21, 3, 1, -21, 4, 1, -21, 5, 1, -21, 6, 1, -21, 7, 1, -21, 8, 1, -20, 65526, 1, -20, 65527, 1, -20, 65528, 1, -20, 65529, 1, -20, 65530, 1, -20, 65531, 1, -20, 65532, 1, -20, 65533, 1, -20, 65534, 1, -20, 65535, 1, -20, 0, 1, -20, 1, 1, -20, 2, 1, -20, 3, 1, -20, 4, 1, -20, 5, 1, -20, 6, 1, -20, 7, 1, -20, 8, 1, -19, 65526, 1, -19, 65527, 1, -19, 65528, 1, -19, 65529, 1, -19, 65530, 1, -19, 65531, 1, -19, 65532, 1, -19, 65533, 1, -19, 65534, 1, -19, 65535, 1, -19, 0, 1, -19, 1, 1, -19, 2, 1, -19, 3, 1, -19, 4, 1, -19, 5, 1, -19, 6, 1, -19, 7, 1, -19, 8, 1, -18, 65526, 1, -18, 65527, 1, -18, 65528, 1, -18, 65529, 1, -18, 65530, 1, -18, 65531, 1, -18, 65532, 1, -18, 65533, 1, -18, 65534, 1, -18, 65535, 1, -18, 0, 1, -18, 1, 1, -18, 2, 1, -18, 3, 1, -18, 4, 1, -18, 5, 1, -18, 6, 1, -18, 7, 1, -18, 8, 1, -17, 65526, 1, -17, 65527, 1, -17, 65528, 1, -17, 65529, 1, -17, 65530, 1, -17, 65531, 1, -17, 65532, 1, -17, 65533, 1, -17, 65534, 1, -17, 65535, 1, -17, 0, 1, -17, 1, 1, -17, 2, 1, -17, 3, 1, -17, 4, 1, -17, 5, 1, -17, 6, 1, -17, 7, 1, -17, 8, 1, -16, 65526, 1, -16, 65527, 1, -16, 65528, 1, -16, 1, 1, -16, 2, 1, -16, 3, 1, -16, 4, 1, -16, 5, 1, -16, 6, 1, -16, 7, 1, -16, 8, 1, -15, 65526, 1, -15, 65527, 1, -15, 65528, 1, -15, 1, 1, -15, 2, 1, -15, 3, 1, -15, 4, 1, -15, 5, 1, -15, 6, 1, -15, 7, 1, -15, 8, 1, -14, 65526, 1, -14, 65527, 1, -14, 65528, 1, -14, 1, 1, -14, 2, 1, -14, 3, 1, -14, 4, 1, -14, 5, 1, -14, 6, 1, -14, 7, 1, -14, 8, 1, -13, 65526, 1, -13, 65527, 1, -13, 65528, 1, -13, 1, 1, -13, 2, 1, -13, 3, 1, -13, 4, 1, -13, 5, 1, -13, 6, 1, -13, 7, 1, -13, 8, 1, -12, 65526, 1, -12, 65527, 1, -12, 65528, 1, -12, 1, 1, -12, 2, 1, -12, 3, 1, -12, 4, 1, -12, 5, 1, -12, 6, 1, -12, 7, 1, -12, 8, 1, -11, 65526, 1, -11, 65527, 1, -11, 65528, 1, -11, 1, 1, -11, 2, 1, -11, 3, 1, -11, 4, 1, -11, 5, 1, -11, 6, 1, -11, 7, 1, -11, 8, 1, -10, 65526, 1, -10, 65527, 1, -10, 65528, 1, -10, 1, 1, -10, 2, 1, -10, 3, 1, -10, 4, 1, -10, 5, 1, -10, 6, 1, -10, 7, 1, -10, 8, 1, -9, 65526, 1, -9, 65527, 1, -9, 65528, 1, -9, 1, 1, -9, 2, 1, -9, 3, 1, -9, 4, 1, -9, 5, 1, -9, 6, 1, -9, 7, 1, -9, 8, 1, -8, 65526, 1, -8, 65527, 1, -8, 65528, 1, -8, 65529, 1, -8, 65530, 1, -8, 65531, 1, -8, 65532, 1, -8, 65533, 1, -8, 65534, 1, -8, 65535, 1, -8, 0, 1, -8, 1, 1, -8, 2, 1, -8, 3, 1, -8, 4, 1, -8, 5, 1, -8, 6, 1, -8, 7, 1, -8, 8, 1, -7, 65526, 1, -7, 65527, 1, -7, 65528, 1, -7, 65529, 1, -7, 65530, 1, -7, 65531, 1, -7, 65532, 1, -7, 65533, 1, -7, 65534, 1, -7, 65535, 1, -7, 0, 1, -7, 1, 1, -7, 2, 1, -7, 3, 1, -7, 4, 1, -7, 5, 1, -7, 6, 1, -7, 7, 1, -7, 8, 1, -6, 65526, 1, -6, 65527, 1, -6, 65528, 1, -6, 65529, 1, -6, 65530, 1, -6, 65531, 1, -6, 65532, 1, -6, 65533, 1, -6, 65534, 1, -6, 65535, 1, -6, 0, 1, -6, 1, 1, -6, 2, 1, -6, 3, 1, -6, 4, 1, -6, 5, 1, -6, 6, 1, -6, 7, 1, -6, 8, 1, -5, 65526, 1, -5, 65527, 1, -5, 65528, 1, -5, 65529, 1, -5, 65530, 1, -5, 65531, 1, -5, 65532, 1, -5, 65533, 1, -5, 65534, 1, -5, 65535, 1, -5, 0, 1, -5, 1, 1, -5, 2, 1, -5, 3, 1, -5, 4, 1, -5, 5, 1, -5, 6, 1, -5, 7, 1, -5, 8, 1)
 }
+metadata/_editor_floor_ = Vector3(0, -1, 0)
 
 [node name="Limits" type="Node3D" parent="."]
 
@@ -247,5 +265,54 @@ collision_mask = 2
 transform = Transform3D(0.000750512, 0, 1, 0, 1, 0, -1, 0, 0.000750512, 0.0266777, 0.793074, 4.05267)
 shape = SubResource("BoxShape3D_l8ktf")
 debug_color = Color(0.996078, 0, 0.193601, 0.42)
+
+[node name="CSGCombiner3D3" type="CSGCombiner3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -27.223, 0, 0)
+use_collision = true
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="CSGCombiner3D3"]
+transform = Transform3D(-4.30473e-08, 7.5904e-09, 1, 0.173648, 0.984808, 0, -0.984808, 0.173648, -4.37114e-08, 2.06691, 1.81363, 0.285713)
+size = Vector3(0.42334, 2.8833, 5.80276)
+material = SubResource("StandardMaterial3D_5himu")
+
+[node name="CSGBox3D3" type="CSGBox3D" parent="CSGCombiner3D3"]
+transform = Transform3D(0.932008, 0.362438, 0, -0.362438, 0.932008, 0, 0, 0, 1, 5.50645, 1.39756, -0.983001)
+size = Vector3(0.42334, 2.8833, 2.61029)
+material = SubResource("StandardMaterial3D_5himu")
+
+[node name="CSGBox3D" type="CSGBox3D" parent="CSGCombiner3D3"]
+transform = Transform3D(0.95007, -0.312036, 0, 0.312036, 0.95007, 0, 0, 0, 1, -1.15232, 1.9113, -0.776242)
+size = Vector3(0.42334, 2.8833, 2.28443)
+material = SubResource("StandardMaterial3D_5himu")
+
+[node name="CSGBox3D4" type="CSGBox3D" parent="CSGCombiner3D3"]
+transform = Transform3D(-4.30473e-08, 7.5904e-09, 1, 0.173648, 0.984808, 0, -0.984808, 0.173648, -4.37114e-08, 7.6313, 1.60986, -2.07521)
+size = Vector3(0.42334, 2.8833, 3.33557)
+material = SubResource("StandardMaterial3D_5himu")
+
+[node name="CSGBox3D6" type="CSGBox3D" parent="CSGCombiner3D3"]
+transform = Transform3D(0.970004, 0.24309, 0, -0.24309, 0.970004, 0, 0, 0, 1, 9.77926, 1.71046, -6.8347)
+size = Vector3(0.42334, 2.8833, 9.53272)
+material = SubResource("StandardMaterial3D_5himu")
+
+[node name="CSGBox3D7" type="CSGBox3D" parent="CSGCombiner3D3"]
+transform = Transform3D(0.963979, -0.265977, 0, 0.265977, 0.963979, 0, 0, 0, 1, -2.93006, 1.82745, -6.9975)
+size = Vector3(0.42334, 2.8833, 9.97062)
+material = SubResource("StandardMaterial3D_5himu")
+
+[node name="CSGBox3D8" type="CSGBox3D" parent="CSGCombiner3D3"]
+transform = Transform3D(-4.30473e-08, -7.5904e-09, 1, -0.173648, 0.984808, 0, -0.984808, -0.173648, -4.37114e-08, 3.32328, 1.79536, -11.995)
+size = Vector3(0.42334, 2.8833, 11.8214)
+material = SubResource("StandardMaterial3D_5himu")
+
+[node name="CSGBox3D9" type="CSGBox3D" parent="CSGCombiner3D3"]
+transform = Transform3D(-4.30473e-08, 7.5904e-09, 1, 0.173648, 0.984808, 0, -0.984808, 0.173648, -4.37114e-08, -2.11977, 1.86612, -1.95459)
+size = Vector3(0.42334, 2.8833, 1.35419)
+material = SubResource("StandardMaterial3D_5himu")
+
+[node name="SpotLight3D2" type="SpotLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -0.226022, 0.974122, 0, -0.974122, -0.226022, -23.9578, 16.0493, -8.34569)
+spot_range = 557.19
+spot_angle = 67.29
 
 [connection signal="finished" from="Bip_bip_hospital" to="." method="_on_bip_bip_hospital_finished"]
