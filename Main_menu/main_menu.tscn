@@ -324,8 +324,8 @@ text = "Esci"
 
 [node name="Logo" type="Sprite2D" parent="."]
 material = SubResource("ShaderMaterial_sblur")
-position = Vector2(590, 167)
-scale = Vector2(0.4, 0.4)
+position = Vector2(342, 94)
+scale = Vector2(0.359375, 0.4)
 texture = ExtResource("2_t5aul")
 
 [node name="ColorRect" type="ColorRect" parent="."]
@@ -360,8 +360,8 @@ scale = Vector2(0.2, 0.2)
 z_index = 1
 layout_mode = 0
 offset_top = -5.0
-offset_right = 1153.0
-offset_bottom = 649.0
+offset_right = 645.0
+offset_bottom = 504.0
 mouse_filter = 2
 color = Color(0, 0, 0, 0)
 

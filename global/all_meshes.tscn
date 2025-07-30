@@ -12,6 +12,7 @@ material = ExtResource("1_hixkc")
 size = Vector3(1, 0.001, 0.947021)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_yw0kl"]
+shading_mode = 0
 albedo_color = Color(0, 0, 0, 1)
 
 [sub_resource type="QuadMesh" id="QuadMesh_0436h"]
@@ -43,7 +44,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00280762, -0.018254, -0.03
 shape = SubResource("BoxShape3D_hixkc")
 
 [node name="2" type="MeshInstance3D" parent="2/StaticBody3D2"]
-transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0)
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0.00790322, -0.00550961, -0.00145268)
 gi_mode = 0
 gi_lightmap_texel_scale = 0.01
 mesh = SubResource("QuadMesh_0436h")
