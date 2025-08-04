@@ -318,8 +318,6 @@ size = Vector3(0.45302, 0.424316, 3.00288)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.68398, 3.43102, -0.639685)
 size = Vector3(0.45302, 0.424316, 2.7397)
 
-[node name="Sprite3D" type="Sprite3D" parent="CSGCombiner3D3/CSGBox3D11"]
-
 [node name="CSGBox3D12" type="CSGBox3D" parent="CSGCombiner3D3"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.51618, 3.43102, -1.81163)
 size = Vector3(2.11742, 0.424316, 0.488317)
