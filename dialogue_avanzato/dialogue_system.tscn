@@ -1,69 +1,43 @@
 [gd_scene load_steps=4 format=3 uid="uid://bj3r0rd8r32fy"]
 
 [ext_resource type="Script" uid="uid://c4ir8mibqg2qw" path="res://dialogue_avanzato/dialogue_system.gd" id="1_5282s"]
+[ext_resource type="StyleBox" uid="uid://cdf4i6dkjdtt2" path="res://dialogue_avanzato/new_style_box_flat.tres" id="1_madhf"]
 [ext_resource type="FontFile" uid="uid://scp3x4w23feq" path="res://dialogue_avanzato/AirAmerica-Regular.otf" id="2_bxe26"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bxe26"]
-bg_color = Color(0, 0, 0, 1)
-border_width_left = 1
-border_width_top = 4
-border_width_right = 1
-border_width_bottom = 2
-border_color = Color(0.510839, 0.462018, 0.450286, 1)
-corner_radius_top_left = 15
-corner_radius_top_right = 15
-corner_radius_bottom_right = 15
-corner_radius_bottom_left = 15
-corner_detail = 1
-expand_margin_left = 2.0
-expand_margin_top = 3.0
-expand_margin_right = 1.0
-expand_margin_bottom = 3.0
-shadow_color = Color(0.366315, 0.376507, 0.336424, 1)
-shadow_size = 1
-shadow_offset = Vector2(0, 8.165)
-anti_aliasing = false
-
 [node name="DialogueSystem" type="CanvasLayer"]
-layer = 10
 script = ExtResource("1_5282s")
 
 [node name="Panel" type="Panel" parent="."]
-z_index = 10
-offset_left = 4.0
+offset_left = 9.0
 offset_top = 183.0
-offset_right = 399.0
-offset_bottom = 212.0
-theme_override_styles/panel = SubResource("StyleBoxFlat_bxe26")
+offset_right = 395.0
+offset_bottom = 213.0
+theme_override_styles/panel = ExtResource("1_madhf")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="."]
-z_index = 10
-offset_left = 16.0
-offset_top = 182.0
-offset_right = 398.0
-offset_bottom = 214.0
+offset_left = 56.0
+offset_top = 185.0
+offset_right = 379.0
+offset_bottom = 213.0
 
 [node name="SpeakerParent" type="Control" parent="HBoxContainer"]
-z_index = 10
 custom_minimum_size = Vector2(70.28, 0)
 layout_mode = 2
 
 [node name="Sprite2D" type="Sprite2D" parent="HBoxContainer/SpeakerParent"]
-position = Vector2(13, 13)
+position = Vector2(-37, 15)
 
 [node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer"]
-z_index = 10
 layout_mode = 2
 size_flags_horizontal = 3
 
 [node name="RichTextLabel" type="RichTextLabel" parent="HBoxContainer/VBoxContainer"]
-z_index = 10
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_fonts/normal_font = ExtResource("2_bxe26")
-theme_override_font_sizes/normal_font_size = 14
+theme_override_font_sizes/normal_font_size = 15
 bbcode_enabled = true
-text = "ryryuiuidgdhfjgfffffffffffffffffffhhhhhhhhhhhhhhhhmnnnnnnnnnn"
+text = "fhfhfdg"
 scroll_active = false
 visible_characters_behavior = 1
 

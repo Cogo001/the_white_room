@@ -325,8 +325,8 @@ text = "Esci"
 
 [node name="Logo" type="Sprite2D" parent="."]
 material = SubResource("ShaderMaterial_sblur")
-position = Vector2(127, 49)
-scale = Vector2(0.141846, 0.116211)
+position = Vector2(204, 47)
+scale = Vector2(0.23, 0.188)
 texture = ExtResource("2_t5aul")
 
 [node name="ColorRect" type="ColorRect" parent="."]

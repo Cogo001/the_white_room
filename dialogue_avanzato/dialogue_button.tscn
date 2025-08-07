@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://c8c7tg63pvvd4"]
 
 [ext_resource type="FontFile" uid="uid://scp3x4w23feq" path="res://dialogue_avanzato/AirAmerica-Regular.otf" id="1_j5dd0"]
-[ext_resource type="StyleBox" uid="uid://cdf4i6dkjdtt2" path="res://dialogue_avanzato/new_style_box_flat.tres" id="2_yw8gg"]
+[ext_resource type="StyleBox" uid="uid://dhls5g8t4amde" path="res://dialogue_avanzato/button.tres" id="2_j5dd0"]
 
 [node name="dialogue_button" type="Button"]
 offset_right = 8.0
@@ -12,7 +12,8 @@ theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_colors/font_focus_color = Color(0.984314, 1, 0, 1)
 theme_override_colors/font_pressed_color = Color(1, 1, 0, 1)
 theme_override_fonts/font = ExtResource("1_j5dd0")
-theme_override_styles/focus = ExtResource("2_yw8gg")
-theme_override_styles/hover = ExtResource("2_yw8gg")
-theme_override_styles/pressed = ExtResource("2_yw8gg")
-theme_override_styles/normal = ExtResource("2_yw8gg")
+theme_override_styles/focus = ExtResource("2_j5dd0")
+theme_override_styles/hover = ExtResource("2_j5dd0")
+theme_override_styles/pressed = ExtResource("2_j5dd0")
+theme_override_styles/normal = ExtResource("2_j5dd0")
+text = "gdgdsg"

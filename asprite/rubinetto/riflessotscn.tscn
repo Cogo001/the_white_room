@@ -1,0 +1,76 @@
+[gd_scene load_steps=15 format=3 uid="uid://ij5gj02xy148"]
+
+[ext_resource type="Script" uid="uid://0p4jno1lhkwo" path="res://asprite/rubinetto/riflessotscn.gd" id="1_fw6dy"]
+[ext_resource type="Texture2D" uid="uid://bhuowv4b6ju7p" path="res://asprite/rubinetto/Sprite-0001.png" id="1_sbg7e"]
+[ext_resource type="Texture2D" uid="uid://ba3lrn2yp47hc" path="res://asprite/rubinetto/Sprite-0002.png" id="2_fw6dy"]
+[ext_resource type="Texture2D" uid="uid://bts2n5e5011fd" path="res://asprite/rubinetto/Sprite-0003.png" id="3_ltfmb"]
+[ext_resource type="Texture2D" uid="uid://dq504bctx6pdy" path="res://asprite/rubinetto/Sprite-0004.png" id="4_ufk5n"]
+[ext_resource type="Texture2D" uid="uid://o82ns8oxvr2" path="res://asprite/rubinetto/Sprite-0005.png" id="5_8ogpv"]
+[ext_resource type="Texture2D" uid="uid://dd2o2a0hdfykg" path="res://asprite/rubinetto/Sprite-0006.png" id="6_m76hr"]
+[ext_resource type="Texture2D" uid="uid://bbe4ml8hspjxy" path="res://asprite/rubinetto/Sprite-0007.png" id="7_27ho8"]
+[ext_resource type="Texture2D" uid="uid://c2p5isdqc0k4n" path="res://asprite/rubinetto/Sprite-0008.png" id="8_5erjf"]
+[ext_resource type="Texture2D" uid="uid://pghsmb2uarys" path="res://asprite/rubinetto/empty_mirror.png" id="9_wckcy"]
+[ext_resource type="SpriteFrames" uid="uid://c4shx35bbuvbv" path="res://Main_character/character2d_animation.tres" id="11_fw6dy"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_l65on"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_sbg7e")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_fw6dy")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_ltfmb")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_ufk5n")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_8ogpv")
+}, {
+"duration": 5.0,
+"texture": ExtResource("6_m76hr")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_27ho8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_5erjf")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_apfm3"]
+size = Vector2(19, 9)
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_pl12g"]
+light_mode = 2
+
+[node name="StaticBody2D" type="StaticBody2D"]
+collision_layer = 2
+script = ExtResource("1_fw6dy")
+
+[node name="specchio" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_l65on")
+autoplay = "default"
+frame_progress = 0.655021
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0.5, -0.5)
+shape = SubResource("RectangleShape2D_apfm3")
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+position = Vector2(-1, 0)
+blend_mode = 2
+texture = ExtResource("9_wckcy")
+
+[node name="Sprite2D" type="AnimatedSprite2D" parent="."]
+material = SubResource("CanvasItemMaterial_pl12g")
+position = Vector2(-1, 3)
+scale = Vector2(0.325, 0.325)
+sprite_frames = ExtResource("11_fw6dy")
+animation = &"down"

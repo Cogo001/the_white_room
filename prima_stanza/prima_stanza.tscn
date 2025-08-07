@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=4 uid="uid://b24imwqmcubam"]
+[gd_scene load_steps=35 format=4 uid="uid://b24imwqmcubam"]
 
 [ext_resource type="Script" uid="uid://cpeqkfw7h7pal" path="res://prima_stanza/prima_stanza.gd" id="1_w0utg"]
 [ext_resource type="AudioStream" uid="uid://bwhoio0enhftv" path="res://prima_stanza/heart-monitor-beep-96554 (mp3cut.net).mp3" id="2_w0utg"]
@@ -10,9 +10,12 @@
 [ext_resource type="Texture2D" uid="uid://dk3spi877ahu5" path="res://asprite/led_bip_bip/bip.png" id="9_84olp"]
 [ext_resource type="Texture2D" uid="uid://c4vtu4he1cd5x" path="res://asprite/finestra/Sprite-0004.png" id="9_v6r7y"]
 [ext_resource type="Shader" uid="uid://c3bn73cqfomp2" path="res://asprite/led_bip_bip/heartbeat.gdshader" id="10_w047x"]
-[ext_resource type="PackedScene" uid="uid://dah7ntl5dudo0" path="res://dialogue_avanzato/dialogue_area_2d.tscn" id="11_0vpkn"]
+[ext_resource type="PackedScene" uid="uid://dfer78lh2c0co" path="res://dialogue_avanzato/dialogue_area_2d.tscn" id="11_0vpkn"]
 [ext_resource type="Script" uid="uid://ioks06t7l122" path="res://dialogue_avanzato/resource_dialogue/DialogueExportResource.gd" id="12_dhrcv"]
 [ext_resource type="Script" uid="uid://6i72ifhxrr0o" path="res://dialogue_avanzato/resource_dialogue/DialogueTextResource.gd" id="13_avixt"]
+[ext_resource type="PackedScene" uid="uid://ij5gj02xy148" path="res://asprite/rubinetto/riflessotscn.tscn" id="14_dhrcv"]
+[ext_resource type="Script" uid="uid://cs47umobsy1im" path="res://dialogue_avanzato/resource_dialogue/DialogueFunctionResource.gd" id="15_484rk"]
+[ext_resource type="Script" uid="uid://djbemgb3jorfh" path="res://dialogue_avanzato/resource_dialogue/DialogueChoiceResource.gd" id="15_avixt"]
 
 [sub_resource type="Animation" id="Animation_662qm"]
 length = 0.001
@@ -227,6 +230,64 @@ metadata/_custom_type_script = "uid://6i72ifhxrr0o"
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kitrj"]
 size = Vector2(30, 28)
 
+[sub_resource type="Resource" id="Resource_kitrj"]
+script = ExtResource("13_avixt")
+speaker_name = ""
+speaker_img_Hframes = 1
+speaker_img_rest_frame = 0
+text = "il rubinetto è aperto, chiuderlo?"
+text_speed = 18.0
+text_volume_db = 0
+text_volume_pitch_min = 0.85
+text_volume_pitch_max = 1.15
+camera_position = Vector2(999.999, 999.999)
+camera_transition_time = 1.0
+metadata/_custom_type_script = "uid://6i72ifhxrr0o"
+
+[sub_resource type="Resource" id="Resource_cr7y8"]
+script = ExtResource("15_484rk")
+target_path = NodePath("../..")
+function_name = "rubinetto_aperto"
+function_arguments = []
+hide_dialogue_box = false
+wait_for_signal_to_continue = ""
+metadata/_custom_type_script = "uid://cs47umobsy1im"
+
+[sub_resource type="Resource" id="Resource_hlelq"]
+script = ExtResource("15_484rk")
+target_path = NodePath("../..")
+function_name = "rubinetto_chiuso"
+function_arguments = []
+hide_dialogue_box = false
+wait_for_signal_to_continue = ""
+metadata/_custom_type_script = "uid://cs47umobsy1im"
+
+[sub_resource type="Resource" id="Resource_ft4qg"]
+script = ExtResource("15_avixt")
+speaker_name = ""
+speaker_img_Hframes = 1
+speaker_img_select_frame = 0
+text = ""
+choice_text = Array[String](["si", "no"])
+choice_function_call = Array[ExtResource("15_484rk")]([SubResource("Resource_cr7y8"), SubResource("Resource_hlelq")])
+metadata/_custom_type_script = "uid://djbemgb3jorfh"
+
+[sub_resource type="Resource" id="Resource_apfm3"]
+script = ExtResource("13_avixt")
+speaker_name = ""
+speaker_img_Hframes = 1
+speaker_img_rest_frame = 0
+text = ""
+text_speed = 18.0
+text_volume_db = 0
+text_volume_pitch_min = 0.85
+text_volume_pitch_max = 1.15
+camera_position = Vector2(999.999, 999.999)
+camera_transition_time = 1.0
+metadata/_custom_type_script = "uid://6i72ifhxrr0o"
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_cr7y8"]
+
 [node name="Prima_scena" type="Node2D"]
 script = ExtResource("1_w0utg")
 
@@ -270,7 +331,7 @@ metadata/_edit_lock_ = true
 position = Vector2(203, 29)
 sprite_frames = SubResource("SpriteFrames_0vpkn")
 autoplay = "default"
-frame_progress = 0.693945
+frame_progress = 0.713249
 
 [node name="DialogueArea2D" parent="prima_stanza/finestra" instance=ExtResource("11_0vpkn")]
 dialogue = Array[ExtResource("12_dhrcv")]([SubResource("Resource_0vpkn")])
@@ -305,5 +366,15 @@ dialogue = Array[ExtResource("12_dhrcv")]([SubResource("Resource_484rk")])
 [node name="CollisionShape2D" type="CollisionShape2D" parent="prima_stanza/elettrocardiogramma/Sprite2D2/DialogueArea2D"]
 position = Vector2(0.999989, -3.8147e-06)
 shape = SubResource("RectangleShape2D_kitrj")
+
+[node name="StaticBody2D" parent="." node_paths=PackedStringArray("character") instance=ExtResource("14_dhrcv")]
+position = Vector2(84, 23)
+character = NodePath("../CharacterBody2D")
+
+[node name="DialogueArea2D" parent="StaticBody2D" instance=ExtResource("11_0vpkn")]
+dialogue = Array[ExtResource("12_dhrcv")]([SubResource("Resource_kitrj"), SubResource("Resource_ft4qg"), SubResource("Resource_apfm3")])
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D/DialogueArea2D"]
+shape = SubResource("RectangleShape2D_cr7y8")
 
 [connection signal="finished" from="prima_stanza/Bip_bip_hospital" to="." method="_on_audio_stream_player_finished"]
