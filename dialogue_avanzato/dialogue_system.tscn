@@ -15,9 +15,9 @@ offset_bottom = 213.0
 theme_override_styles/panel = ExtResource("1_madhf")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="."]
-offset_left = 56.0
-offset_top = 185.0
-offset_right = 379.0
+offset_left = 57.0
+offset_top = 183.0
+offset_right = 363.0
 offset_bottom = 213.0
 
 [node name="SpeakerParent" type="Control" parent="HBoxContainer"]
@@ -35,9 +35,8 @@ size_flags_horizontal = 3
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_fonts/normal_font = ExtResource("2_bxe26")
-theme_override_font_sizes/normal_font_size = 15
+theme_override_font_sizes/normal_font_size = 13
 bbcode_enabled = true
-text = "fhfhfdg"
 scroll_active = false
 visible_characters_behavior = 1
 

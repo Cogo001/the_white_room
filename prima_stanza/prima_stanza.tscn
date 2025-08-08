@@ -1,4 +1,4 @@
-[gd_scene load_steps=35 format=4 uid="uid://b24imwqmcubam"]
+[gd_scene load_steps=41 format=4 uid="uid://b24imwqmcubam"]
 
 [ext_resource type="Script" uid="uid://cpeqkfw7h7pal" path="res://prima_stanza/prima_stanza.gd" id="1_w0utg"]
 [ext_resource type="AudioStream" uid="uid://bwhoio0enhftv" path="res://prima_stanza/heart-monitor-beep-96554 (mp3cut.net).mp3" id="2_w0utg"]
@@ -14,8 +14,12 @@
 [ext_resource type="Script" uid="uid://ioks06t7l122" path="res://dialogue_avanzato/resource_dialogue/DialogueExportResource.gd" id="12_dhrcv"]
 [ext_resource type="Script" uid="uid://6i72ifhxrr0o" path="res://dialogue_avanzato/resource_dialogue/DialogueTextResource.gd" id="13_avixt"]
 [ext_resource type="PackedScene" uid="uid://ij5gj02xy148" path="res://asprite/rubinetto/riflessotscn.tscn" id="14_dhrcv"]
+[ext_resource type="Texture2D" uid="uid://b8ba8usq7goj" path="res://asprite/porta/Sprite-0002.png" id="14_hlelq"]
 [ext_resource type="Script" uid="uid://cs47umobsy1im" path="res://dialogue_avanzato/resource_dialogue/DialogueFunctionResource.gd" id="15_484rk"]
+[ext_resource type="Texture2D" uid="uid://bpvsqcp6e4c5c" path="res://asprite/porta/Sprite-0003.png" id="15_apfm3"]
 [ext_resource type="Script" uid="uid://djbemgb3jorfh" path="res://dialogue_avanzato/resource_dialogue/DialogueChoiceResource.gd" id="15_avixt"]
+[ext_resource type="Texture2D" uid="uid://okve6nh5wk6o" path="res://asprite/porta/Sprite-0005.png" id="16_cqnnf"]
+[ext_resource type="Script" uid="uid://dpq0uto8ctwkp" path="res://prima_stanza/porta.gd" id="17_xi8fk"]
 
 [sub_resource type="Animation" id="Animation_662qm"]
 length = 0.001
@@ -74,63 +78,98 @@ margins = Vector2i(1, 0)
 14:0/0 = 0
 0:1/0 = 0
 1:1/0 = 0
+1:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 2:1/0 = 0
+2:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 3:1/0 = 0
+3:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 4:1/0 = 0
+4:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 5:1/0 = 0
+5:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 6:1/0 = 0
+6:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 7:1/0 = 0
+7:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 8:1/0 = 0
+8:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 9:1/0 = 0
+9:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 10:1/0 = 0
+10:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 11:1/0 = 0
+11:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 12:1/0 = 0
+12:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 13:1/0 = 0
+13:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 14:1/0 = 0
 0:2/0 = 0
 1:2/0 = 0
+1:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 2:2/0 = 0
 13:2/0 = 0
+13:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 14:2/0 = 0
 0:3/0 = 0
 1:3/0 = 0
+1:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 2:3/0 = 0
 13:3/0 = 0
+13:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 14:3/0 = 0
 0:4/0 = 0
 1:4/0 = 0
+1:4/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 2:4/0 = 0
 13:4/0 = 0
+13:4/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 14:4/0 = 0
 0:5/0 = 0
 1:5/0 = 0
+1:5/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 2:5/0 = 0
 13:5/0 = 0
+13:5/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 14:5/0 = 0
 0:6/0 = 0
 1:6/0 = 0
+1:6/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 2:6/0 = 0
 13:6/0 = 0
+13:6/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 14:6/0 = 0
 0:7/0 = 0
 1:7/0 = 0
+1:7/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 2:7/0 = 0
 13:7/0 = 0
+13:7/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 14:7/0 = 0
 0:8/0 = 0
 1:8/0 = 0
+1:8/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 2:8/0 = 0
+2:8/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 3:8/0 = 0
+3:8/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 4:8/0 = 0
+4:8/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 5:8/0 = 0
+5:8/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 6:8/0 = 0
 7:8/0 = 0
 8:8/0 = 0
 9:8/0 = 0
+9:8/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 10:8/0 = 0
+10:8/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 11:8/0 = 0
+11:8/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 12:8/0 = 0
+12:8/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 13:8/0 = 0
+13:8/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 14:8/0 = 0
 0:9/0 = 0
 1:9/0 = 0
@@ -147,8 +186,29 @@ margins = Vector2i(1, 0)
 12:9/0 = 0
 13:9/0 = 0
 14:9/0 = 0
+3:2/0 = 0
+4:2/0 = 0
+5:3/0 = 0
+6:3/0 = 0
+7:3/0 = 0
+7:4/0 = 0
+8:4/0 = 0
+9:4/0 = 0
+9:5/0 = 0
+10:5/0 = 0
+11:6/0 = 0
+12:6/0 = 0
+12:7/0 = 0
+11:7/0 = 0
+10:7/0 = 0
+9:7/0 = 0
+8:7/0 = 0
+7:7/0 = 0
+6:7/0 = 0
+5:7/0 = 0
 
 [sub_resource type="TileSet" id="TileSet_odl8q"]
+physics_layer_0/collision_layer = 4
 sources/0 = SubResource("TileSetAtlasSource_l5qxo")
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_0vpkn"]
@@ -195,7 +255,7 @@ camera_transition_time = 1.0
 metadata/_custom_type_script = "uid://6i72ifhxrr0o"
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_dhrcv"]
-size = Vector2(43, 20)
+size = Vector2(43, 27)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_84olp"]
 size = Vector2(24, 26)
@@ -230,6 +290,26 @@ metadata/_custom_type_script = "uid://6i72ifhxrr0o"
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kitrj"]
 size = Vector2(30, 28)
 
+[sub_resource type="SpriteFrames" id="SpriteFrames_4mia3"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("14_hlelq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_apfm3")
+}, {
+"duration": 10.0,
+"texture": ExtResource("16_cqnnf")
+}],
+"loop": false,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_iuuyr"]
+size = Vector2(16, 23)
+
 [sub_resource type="Resource" id="Resource_kitrj"]
 script = ExtResource("13_avixt")
 speaker_name = ""
@@ -246,7 +326,7 @@ metadata/_custom_type_script = "uid://6i72ifhxrr0o"
 
 [sub_resource type="Resource" id="Resource_cr7y8"]
 script = ExtResource("15_484rk")
-target_path = NodePath("../..")
+target_path = NodePath("../../..")
 function_name = "rubinetto_aperto"
 function_arguments = []
 hide_dialogue_box = false
@@ -255,7 +335,7 @@ metadata/_custom_type_script = "uid://cs47umobsy1im"
 
 [sub_resource type="Resource" id="Resource_hlelq"]
 script = ExtResource("15_484rk")
-target_path = NodePath("../..")
+target_path = NodePath("../../..")
 function_name = "rubinetto_chiuso"
 function_arguments = []
 hide_dialogue_box = false
@@ -293,6 +373,9 @@ script = ExtResource("1_w0utg")
 
 [node name="CharacterBody2D" parent="." instance=ExtResource("5_l5qxo")]
 position = Vector2(110, 146)
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(199, 113)
 
 [node name="prima_stanza" type="Node2D" parent="."]
 
@@ -337,7 +420,7 @@ frame_progress = 0.713249
 dialogue = Array[ExtResource("12_dhrcv")]([SubResource("Resource_0vpkn")])
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="prima_stanza/finestra/DialogueArea2D"]
-position = Vector2(-1, -7)
+position = Vector2(-1, -3.5)
 shape = SubResource("RectangleShape2D_dhrcv")
 
 [node name="elettrocardiogramma" type="StaticBody2D" parent="prima_stanza"]
@@ -367,14 +450,41 @@ dialogue = Array[ExtResource("12_dhrcv")]([SubResource("Resource_484rk")])
 position = Vector2(0.999989, -3.8147e-06)
 shape = SubResource("RectangleShape2D_kitrj")
 
-[node name="StaticBody2D" parent="." node_paths=PackedStringArray("character") instance=ExtResource("14_dhrcv")]
-position = Vector2(84, 23)
-character = NodePath("../CharacterBody2D")
+[node name="Porta" type="AnimatedSprite2D" parent="prima_stanza"]
+position = Vector2(192, 199)
+sprite_frames = SubResource("SpriteFrames_4mia3")
+script = ExtResource("17_xi8fk")
 
-[node name="DialogueArea2D" parent="StaticBody2D" instance=ExtResource("11_0vpkn")]
+[node name="Area2D" type="Area2D" parent="prima_stanza/Porta"]
+collision_layer = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="prima_stanza/Porta/Area2D"]
+position = Vector2(-1, -1.5)
+shape = SubResource("RectangleShape2D_iuuyr")
+
+[node name="StaticBody2D" parent="prima_stanza" node_paths=PackedStringArray("character") instance=ExtResource("14_dhrcv")]
+position = Vector2(84, 23)
+character = NodePath("../../CharacterBody2D")
+
+[node name="DialogueArea2D" parent="prima_stanza/StaticBody2D" instance=ExtResource("11_0vpkn")]
 dialogue = Array[ExtResource("12_dhrcv")]([SubResource("Resource_kitrj"), SubResource("Resource_ft4qg"), SubResource("Resource_apfm3")])
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D/DialogueArea2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="prima_stanza/StaticBody2D/DialogueArea2D"]
 shape = SubResource("RectangleShape2D_cr7y8")
 
+[node name="seconda_stanza" type="Node2D" parent="."]
+position = Vector2(835, 157)
+
+[node name="Marker2D" type="Marker2D" parent="seconda_stanza"]
+position = Vector2(4, 55)
+
+[node name="Label" type="Label" parent="seconda_stanza"]
+offset_left = -51.0
+offset_top = 84.0
+offset_right = 68.0
+offset_bottom = 107.0
+text = "seconda stanza"
+
 [connection signal="finished" from="prima_stanza/Bip_bip_hospital" to="." method="_on_audio_stream_player_finished"]
+[connection signal="body_entered" from="prima_stanza/Porta/Area2D" to="prima_stanza/Porta" method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="prima_stanza/Porta/Area2D" to="prima_stanza/Porta" method="_on_area_2d_body_exited"]

@@ -50,6 +50,7 @@ ui_z={
 3d_physics/layer_1="platform"
 2d_physics/layer_2="oggetti"
 3d_physics/layer_2="giocatore"
+2d_physics/layer_3="collision_bounderies"
 3d_physics/layer_3="area"
 
 [physics]
