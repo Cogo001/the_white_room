@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c65id70jm8b6o"
-path="res://.godot/imported/test stanza.png-cc9950a7206042e842d1dbfa679460b8.ctex"
+uid="uid://73i0hdp3ig7q"
+path="res://.godot/imported/layers_horror.png-99ed00a9da21941f0a6bceebbbdb65b5.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://test_sprite/test stanza.png"
-dest_files=["res://.godot/imported/test stanza.png-cc9950a7206042e842d1dbfa679460b8.ctex"]
+source_file="res://asprite/layers_horror.png"
+dest_files=["res://.godot/imported/layers_horror.png-99ed00a9da21941f0a6bceebbbdb65b5.ctex"]
 
 [params]
 
